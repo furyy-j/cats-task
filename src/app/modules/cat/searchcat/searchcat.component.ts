@@ -1,8 +1,8 @@
-import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
-import { pipe, Subject, Subscription, switchMap } from 'rxjs';
+import {  Subject, Subscription, switchMap } from 'rxjs';
 import {SearchcatService} from "../../../services/searchcat.service";
 import {SpinnerService} from "../../spinner/spinner/spinner.service";
 
@@ -70,6 +70,7 @@ export class SearchcatComponent implements OnInit, OnDestroy {
   }
 
   getCatPictures() {
+
     // switchMap will cancel the previous api call if current api call is still in pending state
     try {
       this.catPicturesLookup$
