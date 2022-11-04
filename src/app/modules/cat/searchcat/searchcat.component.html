@@ -1,1 +1,75 @@
-<p>searchcat works!</p>
+<form [formGroup]="filterForm">
+	<div class="filtersContainer">
+		<mat-form-field appearance="outline">
+			<mat-label>Breed</mat-label>
+			<mat-select formControlName="selectedBreed">
+				<ng-container [formGroup]="searchTexts">
+					<input
+							[style]="{ width: '90%', height: '30px', margin: '5px' }"
+							matInput
+							placeholder="Search"
+							(keyup)="onBreedSearch($event)"
+							formControlName="breedSearchText"
+					/>
+				</ng-container>
+				<mat-option [value]="null"> None </mat-option>
+				<mat-option
+						*ngFor="
+            let breed of catBreeds
+              | breedFilterPipe: searchTexts.get('breedSearchText')?.value
+          "
+						[value]="breed.id"
+				>
+					{{ breed.name }}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+
+		<mat-form-field appearance="outline">
+			<mat-label>Category</mat-label>
+			<mat-select formControlName="selectedCategory">
+				<ng-container [formGroup]="searchTexts">
+					<input
+							[style]="{ width: '90%', height: '30px', margin: '5px' }"
+							matInput
+							placeholder="Search"
+							formControlName="categorySearchText"
+					/>
+				</ng-container>
+				<mat-option [value]="null"> None </mat-option>
+				<mat-option
+						*ngFor="
+            let category of catCategories
+              | breedFilterPipe: searchTexts.get('categorySearchText')?.value
+          "
+						[value]="category.id"
+				>
+					{{ category.name }}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</div>
+	<mat-paginator
+			[length]="totalCount"
+			[pageSize]="filterForm.get('pageSize')?.value"
+			[pageSizeOptions]="pageSizeOptions"
+			[pageIndex]="filterForm.get('currentPage')?.value"
+			(page)="onPageChange($event)"
+			aria-label="Select page"
+	>
+	</mat-paginator>
+</form>
+
+<div class="catsListContainer">
+	<mat-grid-list cols="4" gutterSize="25px">
+		<mat-grid-tile *ngFor="let item of data">
+			<img
+					loading="lazy"
+					src="{{ item.url }}"
+					alt="{{ item.id }}"
+					srcset=""
+					[style]="{ width: '100%', height: '100%' }"
+			/>
+		</mat-grid-tile>
+	</mat-grid-list>
+</div>

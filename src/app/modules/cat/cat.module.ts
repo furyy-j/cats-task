@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { SearchcatComponent } from './searchcat/searchcat.component';
 import { RouterModule, Routes } from '@angular/router';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {CommonImportsModule} from "../common-imports.module";
 
 const routes: Routes = [
     {
@@ -15,7 +17,8 @@ const routes: Routes = [
         SearchcatComponent,
     ],
     imports: [
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        CommonImportsModule
     ],
     providers: [
     ]
