@@ -35,7 +35,7 @@ import {HeadersInterceptor} from "../interceptors/headers.interceptor";
         MatPaginatorModule,
         MatProgressSpinnerModule
     ],
-    providers:[
+    providers: [
         {
             provide: HTTP_INTERCEPTORS,
             useClass: HeadersInterceptor,
