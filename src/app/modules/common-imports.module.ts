@@ -8,6 +8,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
     imports: [
@@ -35,6 +36,9 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
         MatProgressSpinnerModule
     ],
     providers: [
+    ],
+    declarations: [
+      SpinnerComponent
     ]
 })
 export class CommonImportsModule { }
