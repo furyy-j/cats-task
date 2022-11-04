@@ -8,7 +8,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
-import { SpinnerComponent } from './spinner/spinner.component';
+import {HeadersInterceptor} from "../interceptors/headers.interceptor";
 
 @NgModule({
     imports: [
@@ -35,10 +35,12 @@ import { SpinnerComponent } from './spinner/spinner.component';
         MatPaginatorModule,
         MatProgressSpinnerModule
     ],
-    providers: [
-    ],
-    declarations: [
-      SpinnerComponent
+    providers:[
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: HeadersInterceptor,
+            multi: true
+        }
     ]
 })
 export class CommonImportsModule { }
