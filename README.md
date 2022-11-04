@@ -1,6 +1,6 @@
 # CatsTask 
 
-Demo: https://cats-task.web.app
+Demo: https://cats-task.firebaseapp.com/
 
 Main config:
 
