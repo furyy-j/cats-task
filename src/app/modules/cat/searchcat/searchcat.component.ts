@@ -53,7 +53,6 @@ export class SearchcatComponent implements OnInit, OnDestroy {
       this.catSearchService.getAllBreedsApi().subscribe((res: any) => {
         this.spinnerService.hide('get-breeds')
         this.catBreeds = res;
-        console.log(this.catBreeds)
       })
     } catch (e) {
       this.spinnerService.hide('get-breeds')
