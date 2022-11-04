@@ -13,6 +13,7 @@ import {SpinnerService} from "../../spinner/spinner/spinner.service";
 })
 export class SearchcatComponent implements OnInit, OnDestroy {
 
+  breakpoint: number = 5;
   data: any = [];
   catBreeds: any = [];
   catCategories = [];
@@ -38,6 +39,7 @@ export class SearchcatComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    this.breakpoint = (window.innerWidth <= 850) ? 2 : (window.innerWidth <= 1300) ? 3 : 5;
     this.getAllBreeds() // get all breeds
     this.getAllCategories() // get all categories
     this.subscribeToChanges()
@@ -51,6 +53,7 @@ export class SearchcatComponent implements OnInit, OnDestroy {
       this.catSearchService.getAllBreedsApi().subscribe((res: any) => {
         this.spinnerService.hide('get-breeds')
         this.catBreeds = res;
+        console.log(this.catBreeds)
       })
     } catch (e) {
       this.spinnerService.hide('get-breeds')
@@ -115,7 +118,13 @@ export class SearchcatComponent implements OnInit, OnDestroy {
     console.log((event.target as HTMLInputElement).value);
   }
 
+  onResize(event: UIEvent) {
+    const target = event.target as Window;
+    this.breakpoint = (target.innerWidth <= 850) ? 2 : (target.innerWidth <= 1300) ? 3 : 5;
+  }
+
   onPageChange(event: PageEvent) {
+
     this.filterForm.patchValue({
       pageSize: event.pageSize,
       currentPage: event.pageIndex

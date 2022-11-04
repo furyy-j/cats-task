@@ -10,3 +10,9 @@
 mat-paginator{
   margin: -87px 0 50px 0;
 }
+@media (max-width: 850px) {
+  mat-paginator{
+    margin: 0;
+  }
+}
+

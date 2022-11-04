@@ -61,7 +61,7 @@
 </form>
 
 <div class="catsListContainer">
-	<mat-grid-list cols="5" gutterSize="25px">
+	<mat-grid-list cols="{{breakpoint}}" (window:resize)="onResize($event)" gutterSize="25px">
 		<mat-grid-tile *ngFor="let item of data">
 			<img
 					loading="lazy"
