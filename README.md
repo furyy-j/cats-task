@@ -1,27 +1,21 @@
-# CatsTask
+# CatsTask 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
+Demo: https://cats-task.web.app
 
-## Development server
+Main config:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+        "@angular/cli": "~14.2.8",
+        
+        "@angular/material": "^14.2.6",
+        
+        "rxjs": "~7.5.0",
 
-## Code scaffolding
+Installation instructions:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Make pull request via console:
+git clone https://github.com/furyy-j/cats-task/.git
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- In the repository folder terminal write "npm install"
+- After installation hit "npm start or ng serve"
+- Go to http://localhost:4200/ in your browser (or other URL, better double check)
