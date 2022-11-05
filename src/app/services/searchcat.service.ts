@@ -1,5 +1,10 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {Observable} from "rxjs";
+
+import {Breed} from "../models/breed.interface";
+import {Category} from "../models/category.interface";
+
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +13,13 @@ export class SearchcatService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllBreedsApi() {
-    return this.httpClient.get('https://api.thecatapi.com/v1/breeds');
+  getAllBreedsApi(): Observable<Array<Breed>> {
+    return this.httpClient.get<Array<Breed>>('https://api.thecatapi.com/v1/breeds');
   }
 
-  getAllCategoriesApi() {
-    return this.httpClient.get('https://api.thecatapi.com/v1/categories');
+
+  getAllCategoriesApi():  Observable<Array<Category>> {
+    return this.httpClient.get<Array<Category>>('https://api.thecatapi.com/v1/categories');
   }
 
   getCatsPicturesApi(formValues: any) {
