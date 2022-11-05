@@ -59,7 +59,7 @@
 	>
 	</mat-paginator>
 </form>
-
+<div *ngIf="this.data.length===0" class="empty"><h2>There are no matching cats, please select another category</h2></div>
 <div class="catsListContainer">
 	<mat-grid-list cols="{{breakpoint}}" (window:resize)="onResize($event)" gutterSize="25px">
 		<mat-grid-tile *ngFor="let item of data">
